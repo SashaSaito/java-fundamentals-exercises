@@ -26,7 +26,7 @@ public class CrazyGenerics {
         R convert(T obj);
     }
 
-    public static class MaxHolder<T extends Comparable<? super T>> { // todo: refactor class to make it generic
+    public static class MaxHolder<T extends Comparable<? super T>> {
         private T max;
 
         public MaxHolder(T max) {
@@ -44,17 +44,17 @@ public class CrazyGenerics {
         }
     }
 
-    interface StrictProcessor<T extends Serializable & Comparable<? super T>> { // todo: make it generic
+    interface StrictProcessor<T extends Serializable & Comparable<? super T>> {
         void process(T obj);
     }
 
-    interface CollectionRepository<T extends BaseEntity, C extends Collection<T>> { // todo: update interface according to the javadoc
+    interface CollectionRepository<T extends BaseEntity, C extends Collection<T>> {
         void save(T entity);
 
         C getEntityCollection();
     }
 
-    interface ListRepository<T extends BaseEntity> extends CollectionRepository<T, List<T>> { // todo: update interface according to the javadoc
+    interface ListRepository<T extends BaseEntity> extends CollectionRepository<T, List<T>> {
     }
 
     interface ComparableCollection<E> extends Collection<E>, Comparable<Collection<?>> {
